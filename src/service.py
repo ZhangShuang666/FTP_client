@@ -69,6 +69,7 @@ def post(conn, inp):
         data = file_obj.read(1024)
         conn.sendall(data)
         has_sent += len(data)
+        common.bar(has_sent, file_size_byte)
     file_obj.close()
     print("上传成功")
 

@@ -1,4 +1,5 @@
 import hashlib
+import sys
 
 
 def fetch_file_md5(file_path):
@@ -11,4 +12,14 @@ def fetch_file_md5(file_path):
         obj.update(b)
     f.close()
     return obj.hexdigest()
+
+
+def bar(num=1, total=100):
+    rate = float(num) / float(total)
+    rate_num = int(rate * 100)
+    temp = '\r%d %%' % (rate_num, )
+    sys.stdout.write(temp)
+    sys.stdout.flush()
+
+
 
